@@ -4,7 +4,7 @@ export const getAllFoods=()=>dispatch=>{
 
 dispatch({type:'GET_FOODS_REQUEST'})
     
-    axios.get('/api/foods/getallfoods').then(res =>{
+    axios.get('https://tastyfoods.herokuapp.com/api/foods/getallfoods').then(res =>{
         console.log(res);
         
         dispatch({type:'GET_FOODS_SUCCESS',payload : res.data})
@@ -18,7 +18,7 @@ export const getFoodById=(foodid)=>dispatch=>{
 
     dispatch({type:'GET_FOODBYID_REQUEST'})
         
-        axios.post('/api/foods/getfoodbyid',{foodid}).then(res =>{
+        axios.post('https://tastyfoods.herokuapp.com/api/foods/getfoodbyid',{foodid}).then(res =>{
             console.log(res);
             
             dispatch({type:'GET_FOODBYID_SUCCESS',payload : res.data})
@@ -32,7 +32,7 @@ export const getFoodById=(foodid)=>dispatch=>{
 
         var filteredfoods ;
         dispatch({type : 'GET_FOODS_REQUEST'})
-        axios.get('/api/foods/getallfoods').then(res=>{
+        axios.get('https://tastyfoods.herokuapp.com/api/foods/getallfoods').then(res=>{
 
             filteredfoods = res.data
           if(searchkey)
@@ -58,7 +58,7 @@ export const getFoodById=(foodid)=>dispatch=>{
 
         dispatch({type:'DELETE_FOOD_REQUEST'})
       
-        axios.post('/api/foods/deletefood' , {foodid}).then(res=>{
+        axios.post('https://tastyfoods.herokuapp.com/api/foods/deletefood' , {foodid}).then(res=>{
       
           dispatch({type:'DELETE_FOOD_SUCCESS' , payload : res.data})
           alert('Food deleted successfully')
@@ -78,7 +78,7 @@ export const getFoodById=(foodid)=>dispatch=>{
 
         dispatch({type:'ADD_FOOD_REQUEST'})
   
-        axios.post('/api/foods/addfood' , {food}).then(res=>{
+        axios.post('https://tastyfoods.herokuapp.com/api/foods/addfood' , {food}).then(res=>{
           console.log(res);
           dispatch({type:'ADD_FOOD_SUCCESS'})
           window.location.reload()
@@ -94,7 +94,7 @@ export const getFoodById=(foodid)=>dispatch=>{
 
     dispatch({type:'UPDATE_PRODUCT_REQUEST'})
   
-    axios.post('/api/foods/updatefood' , {foodid , updatedfood}).then(res=>{
+    axios.post('https://tastyfoods.herokuapp.com/api/foods/updatefood' , {foodid , updatedfood}).then(res=>{
       console.log(res);
       dispatch({type:'UPDATE_FOOD_SUCCESS'})
       window.location.href='/admin/foodslist'

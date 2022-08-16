@@ -53,7 +53,7 @@ return(
 
                     {loading &&(<Loader/>)}
                     {error && (<Error error='Email Address is already registered'/>)}
-                    {success && (<Success success='Your Registertion in successfull '/>)}
+                    {success && (<Success success='Your Registration in successfull '/>)}
                      
                      <form onSubmit={register}>
 
